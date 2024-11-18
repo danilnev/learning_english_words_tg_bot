@@ -46,12 +46,12 @@ def add_words(username: str, data: dict):
     new_words = []
     for word in data:
         for trn in data[word]:
-            if '-' in trn and '\-' not in trn:
-                data[word].append(trn.replace('-', '\-'))
+            if '-' in trn and '\\-' not in trn:
+                data[word].append(trn.replace('-', '\\-'))
                 del data[word][data[word].index(trn)]
 
-        if '-' in word and '\-' not in word:
-            new_word = word.replace('-', '\-')
+        if '-' in word and '\\-' not in word:
+            new_word = word.replace('-', '\\-')
             print(new_word)
             new_words.append((new_word, data[word]))
             deleteds.append(word)
